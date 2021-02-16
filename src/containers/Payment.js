@@ -11,7 +11,8 @@ const Payment = () => {
 
   let query = new URLSearchParams(useLocation().search);
 
-  let result = (Number(query.get("price")) + 1.2) * 100;
+  let result = Number(query.get("price")) + 1.2;
+  let total = result * 100;
 
   const euro = new Intl.NumberFormat("fr-FR", {
     style: "currency",
@@ -33,7 +34,7 @@ const Payment = () => {
         {
           token: stripeToken,
           title: query.get("name"),
-          amount: result,
+          amount: total,
         }
       );
       console.log(response.status);
@@ -52,23 +53,23 @@ const Payment = () => {
         <div className="payment-container">
           <h1>Résumé de la commande</h1>
           <div>
-            <span>nom de l'article</span>
+            <span>nom de l'article </span>
             <span>{query.get("name")}</span>
           </div>
           <div>
-            <span>Commande</span>
+            <span>Commande </span>
             <span>{euro.format(query.get("price"))}</span>
           </div>
           <div>
-            <span>Frais de protection acheteurs</span>
+            <span>Frais de protection acheteurs </span>
             <span>0,40 €</span>
           </div>
           <div>
-            <span>Frais de port</span>
+            <span>Frais de port </span>
             <span>0,80 €</span>
           </div>
           <div>
-            <span>Total</span>
+            <span>Total </span>
             <span>{euro.format(result)}</span>
           </div>
 
