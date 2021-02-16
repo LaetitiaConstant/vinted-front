@@ -6,7 +6,7 @@ import axios from "axios";
 const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const [succeeded, setSucceeded] = useState(false);
+  const [succeeded, setSucceeded] = useState("");
   const [click, setClick] = useState(false);
 
   let query = new URLSearchParams(useLocation().search);
