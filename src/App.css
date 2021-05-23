@@ -1,183 +1,177 @@
 /* COMMUN RULES */
 .container {
-  width: 1300px;
-  margin: 0 auto;
+	width: 1300px;
+	margin: 0 auto;
 }
 
 body {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 h1 {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 /* HEADER */
 .header {
-  height: 55px;
-  width: 100%;
-  background-color: white;
-  position: fixed;
+	height: 55px;
+	width: 100%;
+	background-color: white;
+	position: fixed;
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .logo {
-  height: 50px;
+	height: 50px;
 }
 
 .header-button button {
-  margin-left: 10px;
-  cursor: pointer;
-  height: 28px;
-  width: 150px;
-  border: 1px solid #05b2bb;
-  border-radius: 5px;
+	margin-left: 10px;
+	cursor: pointer;
+	height: 28px;
+	width: 150px;
+	border: 1px solid #05b2bb;
+	border-radius: 5px;
 }
 
 .header-button button:not(:last-child) {
-  background-color: white;
-  color: #05b2bb;
+	background-color: white;
+	color: #05b2bb;
 }
 
 .header-button button:last-child {
-  background-color: #05b2bb;
-  color: white;
+	background-color: #05b2bb;
+	color: white;
 }
 
 /* HOME PAGE*/
 .imgHome {
-  margin-top: 50px;
-  width: 100%;
-  height: 612px;
-  object-fit: cover;
+	margin-top: 50px;
+	width: 100%;
+	height: 612px;
+	object-fit: cover;
 }
 
 .tear {
-  margin-top: -450px;
+	margin-top: -450px;
 }
 
 .avatar {
-  height: 25px;
-  width: 25px;
-  object-fit: cover;
-  margin: 0 9px;
-  border-radius: 50%;
+	height: 25px;
+	width: 25px;
+	object-fit: cover;
+	margin: 0 9px;
+	border-radius: 50%;
 }
 
 .article {
-  width: 230px;
-  height: 350px;
+	width: 230px;
+	height: 350px;
+	object-fit: cover;
 }
 
 .offer {
-  margin-top: 28px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+	margin-top: 28px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .seller {
-  display: flex;
-  margin-bottom: 8px;
-}
-
-.offerAd {
-  padding-bottom: 35px;
-}
-
-.price {
-  color: red;
+	display: flex;
+	margin-bottom: 8px;
+	align-items: center;
 }
 
 /* OFFER */
 
 .offer-page {
-  display: flex;
-  background-color: #eaedee;
-  height: 100vh;
-  justify-content: space-evenly;
-  padding-top: 150px;
+	display: flex;
+	background-color: #eaedee;
+	height: 100vh;
+	justify-content: space-evenly;
+	padding-top: 150px;
 }
 
 .offer-page-description {
-  background-color: white;
-  padding: 50px;
-  height: 500px;
-  width: 350px;
+	background-color: white;
+	padding: 50px;
+	height: 500px;
+	width: 350px;
 }
 
 .offer-page img {
-  height: 600px;
-  width: 450px;
+	height: 600px;
+	width: 450px;
 }
 
 .offer-price {
-  margin: 10px 0 30px;
+	margin: 10px 0 30px;
 }
 
 .offer-key {
-  padding-right: 50px;
-  width: 110px;
-  color: #a0a0a0;
+	padding-right: 50px;
+	width: 110px;
+	color: #a0a0a0;
 }
 
 .offer-elem {
-  color: #686868;
+	color: #686868;
 }
 
 .array-description {
-  display: flex;
+	display: flex;
 }
 
 .hr-sect {
-  display: flex;
+	display: flex;
 
-  align-items: center;
-  color: black;
-  margin-top: 80px;
+	align-items: center;
+	color: black;
+	margin-top: 80px;
 }
 
 .hr-sect:before,
 .hr-sect:after {
-  content: "";
-  flex-grow: 1;
-  background: black;
-  height: 1px;
-  font-size: 0px;
-  line-height: 0px;
+	content: "";
+	flex-grow: 1;
+	background: black;
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
 }
 
 .offer-page-description img {
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
+	height: 40px;
+	width: 40px;
+	object-fit: cover;
 }
 
 .offer-page-description button {
-  background-color: #05b2bb;
-  color: white;
-  border: none;
-  width: 100%;
-  height: 40px;
-  cursor: pointer;
+	background-color: #05b2bb;
+	color: white;
+	border: none;
+	width: 100%;
+	height: 40px;
+	cursor: pointer;
 }
 
 /* PAYMENT*/
 .bgc-payment {
-  padding-top: 100px;
-  background-color: #eaedee;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
+	padding-top: 100px;
+	background-color: #eaedee;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
 }
 
 .payment-container {
-  background-color: #fff;
-  height: 400px;
-  width: 400px;
+	background-color: #fff;
+	height: 400px;
+	width: 400px;
 }

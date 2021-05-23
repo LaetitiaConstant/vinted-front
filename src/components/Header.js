@@ -1,16 +1,20 @@
 import logo from "../assets/image/logo-vinted-large.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
 		<div className="header">
 			<div className="container nav">
-				<div>
+				<Link to="/">
 					<img className="logo" src={logo} alt="" />
-				</div>
+				</Link>
 				<nav className="header-button">
-					<button>S'incrire</button>
-					<button>Se connecter</button>
-					<button>Vends tes articles</button>
+					<Link to="/signup">
+						<button>S'incrire</button>
+					</Link>
+					<Link to="/login">
+						<button>Se connecter</button>
+					</Link>
 				</nav>
 			</div>
 		</div>

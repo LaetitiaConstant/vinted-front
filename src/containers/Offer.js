@@ -23,21 +23,45 @@ const Offer = () => {
 		fetchData();
 	}, [id]);
 
-	const euro = new Intl.NumberFormat("fr-FR", {
-		style: "currency",
-		currency: "EUR",
-		minimumFractionDigits: 2,
-	});
-
 	return isLoading ? (
 		<p>En cours de chargement...</p>
 	) : (
 		<div className="offer-page">
-			<div>
+			<img src={data.product_image.secure_url} alt={data.product_name} />
+			<div className="offer-page-description">
+				<p className="offer-price">{data.product_price} €</p>
+
+				{data.product_details.map((detail, index) => {
+					return (
+						<div key={index}>
+							<p>{Object.keys(detail)}</p>
+							<p>{detail[Object.keys(detail)]}</p>
+						</div>
+					);
+				})}
+
+				<div className="hr-sect" />
+
+				<img src={data.owner.avatar.secure_url} alt={data.owner.account.username} />
+				<p>{data.owner.account.username}</p>
+				<p>{data.product_name}</p>
+				<p>{data.product_description}</p>
+
+				<Link
+					to={{
+						pathname: "/payment",
+						search: "?name=" + data.product_name + "&price=" + data.product_price,
+					}}
+				>
+					<button>Acheter</button>
+				</Link>
+			</div>
+
+			{/* <div>
 				<img src={data.product_image.secure_url} alt={data.product_name} />
 			</div>
 			<div className="offer-page-description">
-				<p className="offer-price">{euro.format(data.product_price)}</p>
+				<p className="offer-price">{data.product_price}</p>
 
 				{data.product_details.map((elem) => {
 					const keys = Object.keys(elem);
@@ -68,7 +92,7 @@ const Offer = () => {
 				>
 					<button>Acheter</button>
 				</Link>
-			</div>
+			</div> */}
 		</div>
 	);
 };
