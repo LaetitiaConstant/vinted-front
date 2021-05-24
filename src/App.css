@@ -9,7 +9,15 @@ body {
 }
 
 h1 {
-	margin-bottom: 40px;
+	font-size: 24px;
+}
+
+button {
+	cursor: pointer;
+}
+
+input:focus {
+	outline: none;
 }
 
 /* HEADER */
@@ -17,7 +25,6 @@ h1 {
 	height: 55px;
 	width: 100%;
 	background-color: white;
-	position: fixed;
 }
 
 .nav {
@@ -51,7 +58,6 @@ h1 {
 
 /* HOME PAGE*/
 .imgHome {
-	margin-top: 50px;
 	width: 100%;
 	height: 612px;
 	object-fit: cover;
@@ -158,7 +164,6 @@ h1 {
 	border: none;
 	width: 100%;
 	height: 40px;
-	cursor: pointer;
 }
 
 /* PAYMENT*/
@@ -174,4 +179,146 @@ h1 {
 	background-color: #fff;
 	height: 400px;
 	width: 400px;
+}
+
+/* SIGNUP */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.signup ::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #cbcccd;
+	opacity: 1; /* Firefox */
+}
+
+.signup :-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #cbcccd;
+}
+
+.signup ::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #cbcccd;
+}
+
+.signup h1 {
+	margin-bottom: 45px;
+	margin-top: 60px;
+}
+
+.signup input {
+	border: none;
+	border-bottom: #fcced2 1px solid;
+	padding-bottom: 10px;
+	display: flex;
+	width: 280px;
+	font-size: 16px;
+
+	margin-bottom: 30px;
+}
+
+.signup button {
+	background-color: #05b2bb;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.signup {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.signup-redirect {
+	text-decoration: none;
+	color: #05b2bb;
+	margin-top: 20px;
+}
+
+.file-select {
+	background-color: white;
+	padding: 24px;
+	margin: 20px 0;
+	box-shadow: 0 0 2px gray;
+}
+
+.dashed-preview-without {
+	border: 1px #ebedee dashed;
+	border-radius: 3px;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.input-design-default {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #0ab1ba;
+	border-radius: 4px;
+	height: 45px;
+	width: 200px;
+}
+
+.dashed-preview-image {
+	border: 1px #ebedee dashed;
+	border-radius: 3px;
+	height: 200px;
+	display: flex;
+	align-items: center;
+}
+.dashed-preview-image img {
+	height: 90%;
+	margin: 0 10px;
+}
+.remove-img-button {
+	position: relative;
+	color: black;
+	background-color: white;
+	right: 60px;
+	bottom: 70px;
+	height: 25px;
+	line-height: 25px;
+	width: 30px;
+	border-radius: 4px;
+	text-align: center;
+	font-weight: 700;
+	cursor: pointer;
+}
+.label-file {
+	cursor: pointer;
+	color: #0ab1ba;
+	font-weight: bold;
+}
+.label-file > span {
+	margin: 0 10px;
+	vertical-align: middle;
+}
+.label-file:hover {
+	color: #25a5c4;
+}
+
+.input-sign {
+	font-size: 40px;
+}
+
+input[type="file" i] {
+	display: none;
 }

@@ -1,4 +1,7 @@
 import "./App.css";
+import { useState } from "react";
+
+import Cookies from "js-cookie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -8,20 +11,36 @@ import Offer from "./containers/Offer";
 import Payment from "./containers/Payment";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
+import Publish from "./containers/Publish";
 
 // Stripe
 const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
 function App() {
+	const [token, setToken] = useState(Cookies.get("token") || null);
+
+	const setUser = (token) => {
+		if (token) {
+			setToken(token);
+			Cookies.set("token", token);
+		} else {
+			setToken(null);
+			Cookies.remove("token");
+		}
+	};
+
 	return (
 		<Router>
-			<Header />
+			<Header setUser={setUser} token={token} />
 			<Switch>
 				<Route path="/signup">
-					<Signup />
+					<Signup setUser={setUser} />
 				</Route>
 				<Route path="/login">
-					<Login />
+					<Login setUser={setUser} />
+				</Route>
+				<Route path="/publish">
+					<Publish token={token} />
 				</Route>
 				<Route path="/offer/:id">
 					<Offer />
