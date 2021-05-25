@@ -28,7 +28,7 @@ const Signup = ({ setUser }) => {
 				"https://vinted-laetitia-constant.herokuapp.com/user/signup",
 				formData
 			);
-			console.log(response.data.token);
+
 			if (response.data.token) {
 				setUser(response.data.token);
 				history.push("/");
@@ -57,7 +57,7 @@ const Signup = ({ setUser }) => {
 									setPreview("");
 								}}
 							>
-								X
+								x
 							</div>
 						</div>
 					) : (
