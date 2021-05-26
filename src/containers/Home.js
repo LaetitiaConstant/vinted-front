@@ -24,7 +24,18 @@ const Home = () => {
 	}, []);
 
 	return isLoading ? (
-		<p>En cours de chargement...</p>
+		<div className="loaders">
+			<div class="lds-roller">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	) : (
 		<div>
 			<img className="imgHome" src={home} alt="Vinted" />

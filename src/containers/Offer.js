@@ -24,7 +24,18 @@ const Offer = () => {
 	}, [id]);
 
 	return isLoading ? (
-		<p>En cours de chargement...</p>
+		<div className="loaders">
+			<div class="lds-roller">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 	) : (
 		<div className="offer-page">
 			<img src={data.product_image.secure_url} alt={data.product_name} />
