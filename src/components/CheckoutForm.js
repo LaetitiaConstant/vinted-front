@@ -31,7 +31,6 @@ const CheckoutForm = ({ title, price }) => {
 					amount: price,
 				}
 			);
-
 			if (response.data.status === "succeeded") {
 				setSucceededMessage("Paiement validé !");
 			}
