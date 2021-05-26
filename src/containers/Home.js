@@ -23,8 +23,6 @@ const Home = () => {
 		fetchData();
 	}, []);
 
-	console.log(offersData);
-
 	return isLoading ? (
 		<p>En cours de chargement...</p>
 	) : (

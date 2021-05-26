@@ -6,7 +6,6 @@ import axios from "axios";
 const Publish = () => {
 	const history = useHistory();
 	const token = Cookies.get("token");
-	console.log(token);
 
 	const [file, setFile] = useState();
 	const [title, setTitle] = useState("");
@@ -16,35 +15,34 @@ const Publish = () => {
 	const [color, setColor] = useState("");
 	const [condition, setCondition] = useState("");
 	const [city, setCity] = useState("");
-	const [price, setPrice] = useState("");
+	const [price, setPrice] = useState(0);
 	const [preview, setPreview] = useState("");
 
-	const handleSubmit = async (event) => {
-		try {
-			event.preventDefault();
-			const formData = new FormData();
-			formData.append("title", title);
-			formData.append("description", description);
-			formData.append("brand", brand);
-			formData.append("size", size);
-			formData.append("color", color);
-			formData.append("condition", condition);
-			formData.append("city", city);
-			formData.append("price", price);
-			formData.append("picture", file);
+	const formData = new FormData();
+	formData.append("title", title);
+	formData.append("description", description);
+	formData.append("brand", brand);
+	formData.append("size", size);
+	formData.append("color", color);
+	formData.append("condition", condition);
+	formData.append("city", city);
+	formData.append("price", price);
+	formData.append("picture", file);
 
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		try {
 			const response = await axios.post(
 				"https://vinted-laetitia-constant.herokuapp.com/offer/publish",
 				formData,
 				{
-					headers: { authorization: `Bearer ${token}` },
+					headers: { Authorization: `Bearer ${token}` },
 				}
 			);
 
-			// if (response.data._id) {
-			// 	// Rediriger le user
-			// 	history.push(`/offer/${response.data._id}`);
-			// }
+			if (response.data._id) {
+				history.push(`/offer/${response.data._id}`);
+			}
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -138,7 +136,7 @@ const Publish = () => {
 				/>
 				<br />
 				<input
-					type="text"
+					type="number"
 					value={price}
 					placeholder="prix"
 					onChange={(event) => setPrice(event.target.value)}
