@@ -50,49 +50,12 @@ const Offer = () => {
 				<Link
 					to={{
 						pathname: "/payment",
-						search: "?name=" + data.product_name + "&price=" + data.product_price,
+						state: { title: data.product_name, price: data.product_price },
 					}}
 				>
 					<button>Acheter</button>
 				</Link>
 			</div>
-
-			{/* <div>
-				<img src={data.product_image.secure_url} alt={data.product_name} />
-			</div>
-			<div className="offer-page-description">
-				<p className="offer-price">{data.product_price}</p>
-
-				{data.product_details.map((elem) => {
-					const keys = Object.keys(elem);
-
-					return (
-						<div className="array-description">
-							<div className="offer-key">{keys[0]}</div>
-							<div className="offer-elem">{elem[keys[0]]}</div>
-						</div>
-					);
-				})}
-
-				<div className="hr-sect"></div>
-
-				<p className="offer-article">{data.product_name}</p>
-
-				<p>{data.product_description}</p>
-
-				<img src={data.owner.account.avatar.secure_url} alt="" />
-
-				<p>{data.owner.account.username}</p>
-
-				<Link
-					to={{
-						pathname: "/payment",
-						search: "?name=" + data.product_name + "&price=" + data.product_price,
-					}}
-				>
-					<button>Acheter</button>
-				</Link>
-			</div> */}
 		</div>
 	);
 };

@@ -1,87 +1,33 @@
-import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Cookies from "js-cookie";
+import { Redirect } from "react-router-dom";
+import CheckoutForm from "../components/CheckoutForm";
 
 const Payment = () => {
-	const stripe = useStripe();
-	const elements = useElements();
-	const [succeeded, setSucceeded] = useState("");
-	const [click, setClick] = useState(false);
+	// Check if user is authenticated
+	const token = Cookies.get("token");
+	console.log(token);
 
-	let query = new URLSearchParams(useLocation().search);
+	const location = useLocation();
+	// Stripe public key
+	const stripePromise = loadStripe(
+		"pk_test_51ILTtiLHk7wKXcCjTJYKU7fodo1fGS2bvicJfYdIH3dP2AcZDgqGpYqSOee7Q3RwF34w953rjmKsMFTMjT4oraZn007PEZYl1S"
+	);
 
-	let result = Number(query.get("price")) + 1.2;
-	let total = result * 100;
+	const { title, price } = location.state;
 
-	const euro = new Intl.NumberFormat("fr-FR", {
-		style: "currency",
-		currency: "EUR",
-		minimumFractionDigits: 2,
-	});
-
-	const handleSubmit = async (event) => {
-		try {
-			event.preventDefault();
-			const cardElements = elements.getElement(CardElement);
-			const stripeResponse = await stripe.createToken(cardElements, {
-				name: "xxxxx",
-			});
-
-			const stripeToken = stripeResponse.token.id;
-			const response = await axios.post(
-				"https://lereacteur-vinted-api.herokuapp.com/payment",
-				{
-					token: stripeToken,
-					title: query.get("name"),
-					amount: total,
-				}
-			);
-
-			setClick(true);
-			if (response.status === 200) {
-				setSucceeded("Merci pour votre achat !");
-			}
-		} catch (error) {
-			setSucceeded("Erreur");
-			console.log(error.message);
-		}
-	};
-	return (
-		<div className="bgc-payment">
-			{!click ? (
-				<div className="payment-container">
-					<h1>Résumé de la commande</h1>
-					<div>
-						<span>nom de l'article </span>
-						<span>{query.get("name")}</span>
-					</div>
-					<div>
-						<span>Commande </span>
-						<span>{euro.format(query.get("price"))}</span>
-					</div>
-					<div>
-						<span>Frais de protection acheteurs </span>
-						<span>0,40 €</span>
-					</div>
-					<div>
-						<span>Frais de port </span>
-						<span>0,80 €</span>
-					</div>
-					<div>
-						<span>Total </span>
-						<span>{euro.format(result)}</span>
-					</div>
-
-					<form onSubmit={handleSubmit}>
-						<CardElement />
-						<button type="submit">Payer</button>
-					</form>
-				</div>
-			) : (
-				<div>{succeeded}</div>
-			)}
+	return token ? (
+		<div>
+			<p>Nom du produit : {title}</p>
+			<p>Prix : {price} €</p>
+			<Elements stripe={stripePromise}>
+				<CheckoutForm title={title} price={price} />
+			</Elements>
 		</div>
+	) : (
+		<Redirect to={{ pathname: "/login", state: { fromPublish: true } }} />
 	);
 };
 

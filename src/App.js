@@ -3,8 +3,6 @@ import { useState } from "react";
 
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import Header from "./components/Header";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
@@ -12,9 +10,6 @@ import Payment from "./containers/Payment";
 import Signup from "./containers/Signup";
 import Login from "./containers/Login";
 import Publish from "./containers/Publish";
-
-// Stripe
-const stripePromise = loadStripe("pk_test_5z9rSB8XwuAOihoBixCMfL6X");
 
 function App() {
 	const [token, setToken] = useState(Cookies.get("token") || null);
@@ -46,9 +41,7 @@ function App() {
 					<Offer />
 				</Route>
 				<Route path="/payment">
-					<Elements stripe={stripePromise}>
-						<Payment />
-					</Elements>
+					<Payment />
 				</Route>
 				<Route path="/">
 					<Home />
