@@ -15,7 +15,7 @@ const Publish = () => {
 	const [color, setColor] = useState("");
 	const [condition, setCondition] = useState("");
 	const [city, setCity] = useState("");
-	const [price, setPrice] = useState(0);
+	const [price, setPrice] = useState("");
 	const [preview, setPreview] = useState("");
 
 	const formData = new FormData();
@@ -49,100 +49,135 @@ const Publish = () => {
 	};
 
 	return token ? (
-		<div>
-			<h1>Vends ton article</h1>
-			<form onSubmit={handleSubmit}>
-				<div>
-					{preview ? (
-						<div className="dashed-preview-image">
-							<img src={preview} alt="pré-visualisation" />
-							<div
-								className="remove-img-button"
-								onClick={() => {
-									setPreview("");
-								}}
-							>
-								x
-							</div>
-						</div>
-					) : (
-						<div className="dashed-preview-without">
-							<div className="input-design-default">
-								<label htmlFor="file" className="label-file">
-									<span className="input-sign">+</span>
-									<span>Ajoute une photo</span>
-								</label>
-								<input
-									id="file"
-									type="file"
-									className="input-file"
-									onChange={(event) => {
-										setFile(event.target.files[0]);
-										setPreview(URL.createObjectURL(event.target.files[0]));
+		<div className="publish-bg">
+			<div className="container">
+				<h1 className="publish-title">Vends ton article</h1>
+				<form onSubmit={handleSubmit}>
+					<div className="file-publish">
+						{preview ? (
+							<div className="dashed-preview-image">
+								<img src={preview} alt="pré-visualisation" />
+								<div
+									className="remove-img-button"
+									onClick={() => {
+										setPreview("");
 									}}
-								/>
+								>
+									x
+								</div>
 							</div>
-						</div>
-					)}
-				</div>
+						) : (
+							<div className="dashed-preview-without">
+								<div className="input-design-default">
+									<label htmlFor="file" className="label-file">
+										<span className="input-sign">+</span>
+										<span>Ajoute une photo</span>
+									</label>
+									<input
+										id="file"
+										type="file"
+										className="input-file"
+										onChange={(event) => {
+											setFile(event.target.files[0]);
+											setPreview(URL.createObjectURL(event.target.files[0]));
+										}}
+									/>
+								</div>
+							</div>
+						)}
+					</div>
 
-				<br />
-				<input
-					type="text"
-					placeholder="title"
-					value={title}
-					onChange={(event) => setTitle(event.target.value)}
-				/>
-				<br />
-				<textarea
-					placeholder="description"
-					value={description}
-					onChange={(event) => setDescription(event.target.value)}
-				></textarea>
-				<br />
-				<input
-					type="text"
-					value={brand}
-					placeholder="marque"
-					onChange={(event) => setBrand(event.target.value)}
-				/>
-				<br />
-				<input
-					type="text"
-					value={size}
-					placeholder="taille"
-					onChange={(event) => setSize(event.target.value)}
-				/>
-				<br />
-				<input
-					type="text"
-					value={color}
-					placeholder="couleur"
-					onChange={(event) => setColor(event.target.value)}
-				/>
-				<br />
-				<input
-					type="text"
-					value={condition}
-					placeholder="état"
-					onChange={(event) => setCondition(event.target.value)}
-				/>
-				<br />
-				<input
-					type="text"
-					value={city}
-					placeholder="lieu"
-					onChange={(event) => setCity(event.target.value)}
-				/>
-				<br />
-				<input
-					type="number"
-					value={price}
-					placeholder="prix"
-					onChange={(event) => setPrice(event.target.value)}
-				/>
-				<button type="submit">Valider</button>
-			</form>
+					<div className="input-element">
+						<div className="each-element">
+							<p>Titre</p>
+							<input
+								type="text"
+								placeholder="ex: Chemise Sézane verte"
+								value={title}
+								onChange={(event) => setTitle(event.target.value)}
+							/>
+						</div>
+
+						<div className="each-element">
+							<p>Décris ton article</p>
+							<textarea
+								placeholder="ex: porté quelquefois, taille correctement"
+								value={description}
+								onChange={(event) => setDescription(event.target.value)}
+							/>
+						</div>
+					</div>
+
+					<div className="input-element">
+						<div className="each-element">
+							<p>Marque</p>
+							<input
+								type="text"
+								value={brand}
+								placeholder="ex: Zara"
+								onChange={(event) => setBrand(event.target.value)}
+							/>
+						</div>
+
+						<div className="each-element">
+							<p>Taille</p>
+							<input
+								type="text"
+								value={size}
+								placeholder="ex: L / 40 / 12"
+								onChange={(event) => setSize(event.target.value)}
+							/>
+						</div>
+
+						<div className="each-element">
+							<p>Couleur</p>
+							<input
+								type="text"
+								value={color}
+								placeholder="ex: Fushia"
+								onChange={(event) => setColor(event.target.value)}
+							/>
+						</div>
+
+						<div className="each-element">
+							<p>Etat</p>
+							<input
+								type="text"
+								value={condition}
+								placeholder="Neuf avec étiquette"
+								onChange={(event) => setCondition(event.target.value)}
+							/>
+						</div>
+
+						<div className="each-element">
+							<p>Lieu</p>
+							<input
+								type="text"
+								value={city}
+								placeholder="ex: Paris"
+								onChange={(event) => setCity(event.target.value)}
+							/>
+						</div>
+					</div>
+
+					<div className="input-element">
+						<div className="each-element">
+							<p>Prix</p>
+							<input
+								type="number"
+								value={price}
+								placeholder="0,00 €"
+								onChange={(event) => setPrice(event.target.value)}
+							/>
+						</div>
+					</div>
+					<div className="button-container">
+						<button className="publish-button" type="submit">
+							Ajouter
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	) : (
 		<Redirect to={{ pathname: "/login", state: { fromPublish: true } }} />
