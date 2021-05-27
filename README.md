@@ -14,6 +14,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Screenshots of website
 
+<p>
+  <img src="https://github.com/LaetitiaConstant/vinted-front/blob/main/src/assets/readme/HomeScreen.png" alt="home page" width="470"/>
+  <img src="https://github.com/LaetitiaConstant/vinted-front/blob/main/src/assets/readme/signupScreen.png" alt="home page" width="470"/>
+  <img src="https://github.com/LaetitiaConstant/vinted-front/blob/main/src/assets/readme/publishScreen.png" alt="home page" width="470"/>
+  <img src="https://github.com/LaetitiaConstant/vinted-front/blob/main/src/assets/readme/offerScreen.png" alt="home page" width="470"/>
+</p>
+
+
 &nbsp;
 
 ## Future improvements
@@ -21,8 +29,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This site requires some improvements :
 
 - Responsive design
-- Modify an ad or a user account
-- Delete an ad or a user account
+- Modify and Delete an ad
+- Modify and Delete user account
 
 &nbsp;
 
