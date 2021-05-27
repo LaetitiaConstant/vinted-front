@@ -237,6 +237,7 @@ a:active {
 .offer-page img {
 	height: 600px;
 	width: 450px;
+	object-fit: cover;
 }
 
 .offer-price {
@@ -517,6 +518,47 @@ input[type="file" i] {
 	border-bottom: 1px solid #c4c7c9;
 }
 
+textarea {
+	width: 625px;
+	height: 100px;
+	border: none;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #c4c7c9;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+}
+
+textarea {
+	resize: none;
+}
+
+textarea:focus {
+	outline-width: 0;
+}
+
+/* Change color placeholder textarea */
+textarea::-webkit-input-placeholder {
+	color: #c4c7c9;
+}
+
+textarea:-moz-placeholder {
+	/* Firefox 18- */
+	color: #c4c7c9;
+}
+
+textarea::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #c4c7c9;
+}
+
+textarea:-ms-input-placeholder {
+	color: #c4c7c9;
+}
+
+textarea::placeholder {
+	color: #c4c7c9;
+}
+/* Change color placeholder input */
 .publish-bg input::placeholder {
 	/* Chrome, Firefox, Opera, Safari 10.1+ */
 	color: #c4c7c9;

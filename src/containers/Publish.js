@@ -101,7 +101,7 @@ const Publish = () => {
 						<div className="each-element">
 							<p>Décris ton article</p>
 							<textarea
-								placeholder="ex: porté quelquefois, taille correctement"
+								placeholder="ex: Porté quelquefois, taille correctement"
 								value={description}
 								onChange={(event) => setDescription(event.target.value)}
 							/>
