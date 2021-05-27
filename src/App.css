@@ -167,10 +167,11 @@ input:focus {
 	border-radius: 50%;
 }
 
-.article {
+.article-picture {
 	width: 230px;
 	height: 350px;
 	object-fit: cover;
+	margin-bottom: 16px;
 }
 
 .offer {
@@ -184,6 +185,36 @@ input:focus {
 	display: flex;
 	margin-bottom: 8px;
 	align-items: center;
+}
+
+.seller p {
+	color: #b5b5b5;
+	font-size: 14px;
+}
+
+a:hover,
+a:visited,
+a:link,
+a:active {
+	text-decoration: none;
+}
+
+.product-description {
+	margin-left: 7px;
+}
+
+.price {
+	color: black;
+	margin-bottom: 4px;
+}
+
+.product-size {
+	color: #b5b5b5;
+	margin-bottom: 4px;
+}
+
+.product-brand {
+	color: #b5b5b5;
 }
 
 /* OFFER */
@@ -210,12 +241,30 @@ input:focus {
 
 .offer-price {
 	margin: 10px 0 30px;
+	font-size: 24px;
+	color: #111111;
 }
 
 .offer-key {
 	padding-right: 50px;
 	width: 110px;
 	color: #a0a0a0;
+}
+
+.offer-products-description {
+	display: flex;
+}
+
+.offer-title-description {
+	width: 160px;
+	color: #a0a0a0;
+	margin-bottom: 8px;
+}
+
+.offer-detail-description {
+	width: 160px;
+	color: #666666;
+	margin-bottom: 8px;
 }
 
 .offer-elem {
@@ -228,9 +277,8 @@ input:focus {
 
 .hr-sect {
 	display: flex;
-
 	align-items: center;
-	color: black;
+	color: #eaedee;
 	margin-top: 80px;
 }
 
@@ -238,16 +286,17 @@ input:focus {
 .hr-sect:after {
 	content: "";
 	flex-grow: 1;
-	background: black;
+	background: #eaedee;
 	height: 1px;
 	font-size: 0px;
 	line-height: 0px;
 }
 
 .offer-page-description img {
-	height: 40px;
-	width: 40px;
+	height: 60px;
+	width: 60px;
 	object-fit: cover;
+	margin-right: 10px;
 }
 
 .offer-page-description button {
@@ -256,6 +305,25 @@ input:focus {
 	border: none;
 	width: 100%;
 	height: 40px;
+}
+
+.offer-product-name {
+	margin-top: 40px;
+	margin-bottom: 25px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.offer-product-description {
+	color: #666666;
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.profil-offer {
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
 }
 
 /* SIGNUP */

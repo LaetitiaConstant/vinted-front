@@ -1,4 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useState } from "react";
 
@@ -8,6 +9,10 @@ const CheckoutForm = ({ title, price }) => {
 
 	const [succeededMessage, setSucceededMessage] = useState("");
 	const [disabled, setDisabled] = useState(false);
+
+	let newPrice = Number(price);
+	console.log(newPrice);
+	console.log(price);
 
 	const handleSubmit = async (event) => {
 		try {
@@ -28,7 +33,7 @@ const CheckoutForm = ({ title, price }) => {
 				{
 					token: stripeToken,
 					title: title,
-					amount: price,
+					amount: newPrice,
 				}
 			);
 			if (response.data.status === "succeeded") {

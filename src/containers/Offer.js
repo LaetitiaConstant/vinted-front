@@ -25,7 +25,7 @@ const Offer = () => {
 
 	return isLoading ? (
 		<div className="loaders">
-			<div class="lds-roller">
+			<div className="lds-roller">
 				<div></div>
 				<div></div>
 				<div></div>
@@ -44,19 +44,29 @@ const Offer = () => {
 
 				{data.product_details.map((detail, index) => {
 					return (
-						<div key={index}>
-							<p>{Object.keys(detail)}</p>
-							<p>{detail[Object.keys(detail)]}</p>
+						<div key={index} className="offer-products-description">
+							<div className="offer-title-description">
+								<p>{Object.keys(detail)}</p>
+							</div>
+							<div className="offer-detail-description">
+								<p>{detail[Object.keys(detail)]}</p>
+							</div>
 						</div>
 					);
 				})}
 
 				<div className="hr-sect" />
 
-				<img src={data.owner.avatar.secure_url} alt={data.owner.account.username} />
-				<p>{data.owner.account.username}</p>
-				<p>{data.product_name}</p>
-				<p>{data.product_description}</p>
+				<p className="offer-product-name">{data.product_name}</p>
+				<p className="offer-product-description">{data.product_description}</p>
+
+				<div className="profil-offer">
+					<img
+						src={data.owner.avatar.secure_url}
+						alt={data.owner.account.username}
+					/>
+					<p>{data.owner.account.username}</p>
+				</div>
 
 				<Link
 					to={{
